@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#151515"
+
+    tools:context=".MainActivity">
+
+
+    <!--
+    <RelativeLayout
+        android:layout_width="302dp"
+        android:layout_height="317dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_ourse_card"
+        android:elevation="4dp"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.153">
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="300dp"
+            android:layout_height="106dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/rounded_course"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/c1" />
+
+        <Button
+            android:id="@+id/click"
+            android:layout_width="44dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/rounded_edit_text"
+            android:layout_marginTop="6dp"
+            android:foreground="@drawable/bookmark"
+            android:foregroundGravity="center"
+            android:translationX="240dp"
+            app:backgroundTint="@color/gray" />
+
+        <LinearLayout
+            android:layout_width="196dp"
+            android:layout_height="37dp"
+            android:layout_alignStart="@+id/backgroundImage"
+            android:layout_alignTop="@+id/backgroundImage"
+            android:layout_alignEnd="@+id/backgroundImage"
+            android:layout_alignBottom="@+id/backgroundImage"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="119dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            android:translationX="-10dp"
+            android:translationY="24dp">
+
+            <Button
+                android:id="@+id/ratingButton"
+                android:layout_width="60dp"
+                android:layout_height="24dp"
+                android:background="@drawable/rounded_edit_text"
+                android:padding="0dp"
+                android:text="4.9"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                app:backgroundTint="@color/gray" />
+
+            <Button
+                android:id="@+id/dateButton"
+                android:layout_width="80dp"
+                android:layout_height="24dp"
+                android:background="@drawable/rounded_edit_text"
+                android:foregroundGravity="center"
+                android:padding="0dp"
+                android:text="22 Май 2024"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                app:backgroundTint="@color/gray" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/courseTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/backgroundImage"
+            android:layout_margin="16dp"
+            android:text="Java-разработчик с нуля"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/courseDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/courseTitle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Освойте backend-разработку и программирование на Java, фреймворки..."
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/courseDescription"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="21dp">
+
+            <TextView
+                android:id="@+id/coursePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="999 ₽"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/courseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@android:color/transparent"
+                android:text="Подробнее"
+                android:textColor="@android:color/holo_green_light"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </RelativeLayout> -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/tvT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="264dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_edit_text"
+            android:drawableStart="@drawable/search"
+            android:hint="Search courses..."
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textColorHighlight="#EDE5E5"
+            android:textColorHint="#575656" />
+
+        <Button
+            android:id="@+id/not"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/rounded_button_blue"
+
+            android:foreground="@drawable/funnel"
+            android:foregroundGravity="center"
+            app:backgroundTint="#24252A" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:textColor="#C8C1C1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.733" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="410dp"
+        android:layout_height="477dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginBottom="132dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.136" />
+
+    <Button
+        android:id="@+id/sort"
+        android:layout_width="168dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:drawableEnd="@drawable/arrow_down_up"
+        android:padding="0dp"
+        android:text="По дате обновления"
+        android:textColor="#12B956"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.723"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <LinearLayout
+        android:layout_width="414dp"
+        android:layout_height="95dp"
+        android:layout_margin="0dp"
+        android:background="#24252A"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btMain"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_marginRight="67dp"
+                android:background="@drawable/rounded_button"
+                android:foreground="@drawable/sl4"
+
+                app:backgroundTint="#32333A"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btFav"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <Button
+                android:id="@+id/btFav"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_marginRight="67dp"
+                android:background="@android:color/transparent"
+                android:foreground="@drawable/sl1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                app:layout_constraintVertical_bias="0.3" />
+
+
+            <Button
+                android:id="@+id/btAc"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/transparent"
+                android:foreground="@drawable/sl6"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/btFav"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+                app:layout_constraintVertical_bias="0.04" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/label1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-14dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Главная"
+                android:textColor="#12B956" />
+
+            <TextView
+                android:id="@+id/label2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Избранное"
+                android:textColor="#F2F2F3" />
+
+            <TextView
+                android:id="@+id/label3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Аккаунт"
+                android:textColor="#F2F2F3" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

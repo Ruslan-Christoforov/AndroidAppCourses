@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="317dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_ourse_card"
+        android:elevation="4dp"
+        android:padding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.153">
+
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="0dp"
+            android:layout_marginStart="-2dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/rounded_course"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/im3" />
+
+        <Button
+            android:id="@+id/itemclick"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_alignBottom="@+id/backgroundImage"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="0dp"
+
+            android:layout_marginBottom="67dp"
+            android:background="@drawable/rounded_edit_text"
+            android:foreground="@drawable/bookmark"
+            android:foregroundGravity="center"
+            app:backgroundTint="#32333A4D" />
+
+
+        <LinearLayout
+            android:layout_width="135dp"
+            android:layout_height="49dp"
+            android:layout_alignStart="@+id/backgroundImage"
+            android:layout_alignTop="@+id/backgroundImage"
+            android:layout_alignEnd="@+id/backgroundImage"
+            android:layout_alignBottom="@+id/backgroundImage"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="206dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal"
+            android:translationX="-10dp"
+            android:translationY="24dp">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <Button
+                    android:id="@+id/itemratingButton"
+                    android:layout_width="26dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/rounded_edit_text"
+                    android:padding="0dp"
+                    android:text="4.9"
+                    android:textColor="@android:color/white"
+                    android:textSize="8sp"
+                    android:gravity="end"
+                    android:paddingEnd="2dp"
+                    app:backgroundTint="#32333A4D"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/star_fill"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="2dp" /> <!-- Здесь вы можете изменить отступ, чтобы передвинуть изображение -->
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/itemdateButton"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:background="@drawable/rounded_edit_text"
+                android:foregroundGravity="center"
+                android:padding="0dp"
+                android:text="22 Май 2024"
+                android:layout_marginLeft="2dp"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                app:backgroundTint="#32333A4D" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/itemcourseTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/backgroundImage"
+            android:layout_margin="16dp"
+            android:text="Java-разработчик с нуля"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/courseDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemcourseTitle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Освойте backend-разработку и программирование на Java, фреймворки..."
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/courseDescription"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="21dp">
+
+            <TextView
+                android:id="@+id/itemcoursePrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="999 ₽"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/courseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@android:color/transparent"
+                android:text="Подробнее"
+                android:textColor="@android:color/holo_green_light"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </RelativeLayout>
+</LinearLayout>
