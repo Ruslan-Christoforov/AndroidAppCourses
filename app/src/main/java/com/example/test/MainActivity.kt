@@ -65,8 +65,6 @@ class MainActivity : AppCompatActivity() {
             //userDao.insert(newUser)
             hashLikeCourses = userDao.getAllUsers()
             // Обработка списка пользователей
-
-            // Убедитесь, что users не равен null и не пуст
             hashLikeCourses?.let { userList ->
                 if (userList.isNotEmpty()) {
                 } else {
