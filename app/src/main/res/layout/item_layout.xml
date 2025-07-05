@@ -64,14 +64,14 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="44dp"
             android:layout_alignStart="@+id/backgroundImage"
             android:layout_alignTop="@+id/backgroundImage"
             android:layout_alignEnd="@+id/backgroundImage"
             android:layout_alignBottom="@+id/backgroundImage"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="226dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="235dp"
             android:layout_marginBottom="30dp"
             android:orientation="horizontal"
             android:translationX="-10dp"

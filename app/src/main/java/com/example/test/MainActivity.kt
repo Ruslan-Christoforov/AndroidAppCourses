@@ -60,18 +60,7 @@ class MainActivity : AppCompatActivity() {
         db = AppDatabase.getDatabase(this)
         userDao = db.userDao()
 
-        // Добавление нового пользователя
-        val newUser = User(title = "Sample Item",
-            text = "This is a description of the sample item.",
-            price = "19.99",
-            rate = "4.5",
-            startDate = "2024-01-01",
-            hasLike = false,
-            publishDate = "2024-01-02"
-        )
 
-
-        var firstUserTitle = ""
         lifecycleScope.launch {
             //userDao.insert(newUser)
             hashLikeCourses = userDao.getAllUsers()
@@ -80,8 +69,6 @@ class MainActivity : AppCompatActivity() {
             // Убедитесь, что users не равен null и не пуст
             hashLikeCourses?.let { userList ->
                 if (userList.isNotEmpty()) {
-                    firstUserTitle = userList[0].title
-                    Toast.makeText(this@MainActivity, firstUserTitle, Toast.LENGTH_SHORT).show()
                 } else {
                     println("Список пользователей пуст.")
                 }
@@ -106,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 
         fetchCoins()
 
-        var btSort: Button = findViewById(R.id.sort)
+        val btSort: Button = findViewById(R.id.sort)
 
         btSort.setOnClickListener {
             var sortedItems = items.sortedByDescending { LocalDate.parse(it.publishDate, DateTimeFormatter.ISO_LOCAL_DATE) }
@@ -120,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        var btFavorites: Button = findViewById(R.id.btFav)
+        val btFavorites: Button = findViewById(R.id.btFav)
 
         btFavorites.setOnClickListener {
             changeAtributes("favorites")
@@ -140,20 +127,24 @@ class MainActivity : AppCompatActivity() {
                 recyclerView.adapter = adapter
             }
 
-
-
             for (item in visibleItems) {
                 addInDatbase(item)
             }
 
         }
 
-        var btMain: Button = findViewById(R.id.btMain)
+        val btMain: Button = findViewById(R.id.btMain)
 
         btMain.setOnClickListener {
             changeAtributes("main")
-            //items = mutableListOf()
+
             fetchCoins()
+        }
+
+        val btAc: Button = findViewById(R.id.btAc)
+        btAc.setOnClickListener {
+            changeAtributes("accaunt")
+
         }
 
     }
@@ -190,11 +181,13 @@ class MainActivity : AppCompatActivity() {
                             val exists = hashLikeCourses!!.any { it.title == course.title }
                             if (exists) {
                                 course.hasLike = true
-                                Toast.makeText(this@MainActivity, "Yse", Toast.LENGTH_SHORT).show()
+                                //Toast.makeText(this@MainActivity, "Yse", Toast.LENGTH_SHORT).show()
                             }
 
                             items.add(Item(course.id, course.title, course.text, course.price, course.rate, course.startDate, course.hasLike, course.publishDate))
                         }
+
+                        items = items.distinctBy { it.title }.toMutableList()
 
                     }
                 } else {
@@ -217,16 +210,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeAtributes(choose:String) {
+        var t: TextView
+        t = findViewById(R.id.label1)
+        t.setTextColor(Color.parseColor("#F2F2F3"))
+
+        t = findViewById(R.id.label2)
+        t.setTextColor(Color.parseColor("#F2F2F3"))
+
+        t = findViewById(R.id.label3)
+        t.setTextColor(Color.parseColor("#F2F2F3"))
+
+        var bt: Button
+        bt = findViewById(R.id.btMain)
+        bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl2)
+
+        bt = findViewById(R.id.btFav)
+        bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl1)
+
+        bt = findViewById(R.id.btAc)
+        bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl6)
+
         if (choose == "favorites") {
             var t: TextView = findViewById(R.id.label2)
             t.setTextColor(Color.parseColor("#12B956"))
-
-            t = findViewById(R.id.label1)
-            t.setTextColor(Color.parseColor("#F2F2F3"))
-
-            var bt: Button = findViewById(R.id.btMain)
-            bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl2)
-
             bt = findViewById(R.id.btFav)
             bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl3)
         }
@@ -234,17 +240,17 @@ class MainActivity : AppCompatActivity() {
         if (choose == "main") {
             var t: TextView = findViewById(R.id.label1)
             t.setTextColor(Color.parseColor("#12B956"))
-
-            t = findViewById(R.id.label2)
-            t.setTextColor(Color.parseColor("#F2F2F3"))
-
-            var bt: Button = findViewById(R.id.btFav)
-            bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl1)
-
             bt = findViewById(R.id.btMain)
             bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl4)
-
         }
+
+        if (choose == "accaunt") {
+            var t: TextView = findViewById(R.id.label3)
+            t.setTextColor(Color.parseColor("#12B956"))
+            bt = findViewById(R.id.btAc)
+            bt.foreground = ContextCompat.getDrawable(this, R.drawable.sl7)
+        }
+
 
     }
 
@@ -262,7 +268,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             userDao.insert(newUser)
-            Toast.makeText(this@MainActivity, "Данные загружены", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this@MainActivity, "Данные загружены", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -280,7 +286,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             userDao.insert(newUser)
-            Toast.makeText(this@MainActivity, "Данные загружены", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this@MainActivity, "Данные загружены", Toast.LENGTH_SHORT).show()
         }
     }
 }

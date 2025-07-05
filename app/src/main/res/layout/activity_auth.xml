@@ -53,11 +53,11 @@
             android:layout_width="337dp"
             android:layout_height="44dp"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Введите ваш email"
+            android:hint="example@gmail.com"
             android:padding="12dp"
             android:textColor="@color/white"
             android:textColorHighlight="#EDE5E5"
-            android:textColorHint="@color/white" />
+            android:textColorHint="#575656" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,11 +73,11 @@
             android:layout_width="match_parent"
             android:layout_height="44dp"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Введите ваш пароль"
+            android:hint="Введите пароль"
             android:inputType="textPassword"
             android:padding="12dp"
             android:textColor="@android:color/black"
-            android:textColorHint="@color/white" />
+            android:textColorHint="#575656" />
 
     </LinearLayout>
 
@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.467" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"

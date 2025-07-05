@@ -1,6 +1,7 @@
 package com.example.test
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -39,6 +40,18 @@ class Auth : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        val buttonOpenLink: Button = findViewById(R.id.button1)
+
+        buttonOpenLink.setOnClickListener {
+            openLink("https://vk.com/")
+        }
+
+        val buttonOpenLink2: Button = findViewById(R.id.button2)
+
+        buttonOpenLink2.setOnClickListener {
+            openLink("https://ok.ru/")
+        }
     }
 
     private val inputWatcher = object : TextWatcher {
@@ -60,5 +73,11 @@ class Auth : AppCompatActivity() {
         val isPasswordNotEmpty = password.isNotEmpty()
 
         loginButton.isEnabled = isEmailValid && isPasswordNotEmpty
+    }
+
+    private fun openLink(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
     }
 }

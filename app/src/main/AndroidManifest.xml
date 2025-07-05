@@ -15,10 +15,10 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Test">
         <activity
-            android:name=".Auth"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Auth"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
