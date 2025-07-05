@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:text="Регистрация"
-                android:textColor="@android:color/holo_green_dark"
+                android:textColor="#12B956"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -147,7 +147,7 @@
             android:clickable="true"
             android:focusable="true"
             android:text="Забыли пароль?"
-            android:textColor="#659505"
+            android:textColor="#12B956"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -185,7 +185,7 @@
 
             android:foreground="@drawable/s2"
             android:foregroundGravity="center"
-            app:backgroundTint="@color/blue" />
+            app:backgroundTint="#2683ED" />
 
         <Button
             android:id="@+id/button2"

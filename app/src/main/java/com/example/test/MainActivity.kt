@@ -7,12 +7,17 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+
+import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,10 +28,11 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 
+
 class MainActivity : AppCompatActivity() {
 
 
-    private lateinit var coinApiService: CoinApiService
+    private lateinit var coinApiService: CorseApiService
 
     private lateinit var myTextView: TextView
 
@@ -35,6 +41,10 @@ class MainActivity : AppCompatActivity() {
     private var coursesList: List<Course>? = null
 
 
+    private lateinit var db: AppDatabase
+    private lateinit var userDao: UserDao
+
+    var hashLikeCourses: List<User>? = null
 
 
     var items: MutableList<Item> = mutableListOf()
@@ -44,12 +54,50 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+
+        //deleteDatabase("user_database")
+
+        db = AppDatabase.getDatabase(this)
+        userDao = db.userDao()
+
+        // Добавление нового пользователя
+        val newUser = User(title = "Sample Item",
+            text = "This is a description of the sample item.",
+            price = "19.99",
+            rate = "4.5",
+            startDate = "2024-01-01",
+            hasLike = false,
+            publishDate = "2024-01-02"
+        )
+
+
+        var firstUserTitle = ""
+        lifecycleScope.launch {
+            //userDao.insert(newUser)
+            hashLikeCourses = userDao.getAllUsers()
+            // Обработка списка пользователей
+
+            // Убедитесь, что users не равен null и не пуст
+            hashLikeCourses?.let { userList ->
+                if (userList.isNotEmpty()) {
+                    firstUserTitle = userList[0].title
+                    Toast.makeText(this@MainActivity, firstUserTitle, Toast.LENGTH_SHORT).show()
+                } else {
+                    println("Список пользователей пуст.")
+                }
+            } ?: run {
+                println("Не удалось получить список пользователей.")
+            }
+
+
+        }
+
         val retrofit = Retrofit.Builder()
             .baseUrl("https://drive.usercontent.google.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        coinApiService = retrofit.create(CoinApiService::class.java)
+        coinApiService = retrofit.create(CorseApiService::class.java)
 
         myTextView = findViewById(R.id.tvT)
 
@@ -86,16 +134,25 @@ class MainActivity : AppCompatActivity() {
 
             if (visibleItems != null) {
                 val adapter = ItemAdapter(visibleItems!!) { item ->
+
+                    Item(item.id, item.title, item.text, item.price, item.rate, item.startDate, item.hasLike, item.publishDate)
                 }
                 recyclerView.adapter = adapter
             }
+
+
+
+            for (item in visibleItems) {
+                addInDatbase(item)
+            }
+
         }
 
         var btMain: Button = findViewById(R.id.btMain)
 
         btMain.setOnClickListener {
             changeAtributes("main")
-            items = mutableListOf()
+            //items = mutableListOf()
             fetchCoins()
         }
 
@@ -129,7 +186,14 @@ class MainActivity : AppCompatActivity() {
                         // Теперь вы можете работать с курсами
                         for (course in coursesList!!) {
                             myTextView.append('\n' + course.title)
-                            items.add(Item(course.title, course.text, course.price, course.rate, course.startDate, course.hasLike, course.publishDate))
+
+                            val exists = hashLikeCourses!!.any { it.title == course.title }
+                            if (exists) {
+                                course.hasLike = true
+                                Toast.makeText(this@MainActivity, "Yse", Toast.LENGTH_SHORT).show()
+                            }
+
+                            items.add(Item(course.id, course.title, course.text, course.price, course.rate, course.startDate, course.hasLike, course.publishDate))
                         }
 
                     }
@@ -182,5 +246,41 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun addInDatbase(item: Item) {
+        // Добавление нового пользователя
+        val newUser = User(title = item.title,
+            text = item.text,
+            price = item.price,
+            rate = item.rate,
+            startDate = item.startDate,
+            hasLike = item.hasLike,
+            publishDate = item.publishDate
+        )
+
+
+        lifecycleScope.launch {
+            userDao.insert(newUser)
+            Toast.makeText(this@MainActivity, "Данные загружены", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun addInDatbase(item: User) {
+        // Добавление нового пользователя
+        val newUser = User(title = item.title,
+            text = item.text,
+            price = item.price,
+            rate = item.rate,
+            startDate = item.startDate,
+            hasLike = item.hasLike,
+            publishDate = item.publishDate
+        )
+
+
+        lifecycleScope.launch {
+            userDao.insert(newUser)
+            Toast.makeText(this@MainActivity, "Данные загружены", Toast.LENGTH_SHORT).show()
+        }
     }
 }

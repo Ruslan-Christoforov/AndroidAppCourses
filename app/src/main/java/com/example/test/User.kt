@@ -1,10 +1,11 @@
 package com.example.test
 
-import kotlinx.serialization.Serializable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Serializable
-data class Course(
-    val id: Int,
+@Entity(tableName = "users")
+data class User(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val title: String,
     val text: String,
     val price: String,
@@ -12,9 +13,4 @@ data class Course(
     val startDate: String,
     var hasLike: Boolean,
     val publishDate: String
-)
-
-@Serializable
-data class CoursesResponse(
-    val courses: List<Course>
 )

@@ -27,7 +27,7 @@
         <ImageView
             android:id="@+id/backgroundImage"
             android:layout_width="match_parent"
-            android:layout_height="106dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -63,15 +63,15 @@
 
 
         <LinearLayout
-            android:layout_width="135dp"
-            android:layout_height="49dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:layout_alignStart="@+id/backgroundImage"
             android:layout_alignTop="@+id/backgroundImage"
             android:layout_alignEnd="@+id/backgroundImage"
             android:layout_alignBottom="@+id/backgroundImage"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="51dp"
-            android:layout_marginEnd="206dp"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="226dp"
             android:layout_marginBottom="30dp"
             android:orientation="horizontal"
             android:translationX="-10dp"
@@ -80,29 +80,28 @@
 
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/itemratingButton"
                     android:layout_width="26dp"
                     android:layout_height="20dp"
                     android:background="@drawable/rounded_edit_text"
+                    android:gravity="end"
                     android:padding="0dp"
+                    android:paddingEnd="2dp"
                     android:text="4.9"
                     android:textColor="@android:color/white"
                     android:textSize="8sp"
-                    android:gravity="end"
-                    android:paddingEnd="2dp"
-                    app:backgroundTint="#32333A4D"/>
+                    app:backgroundTint="#32333A4D" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/star_fill"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="2dp" /> <!-- Здесь вы можете изменить отступ, чтобы передвинуть изображение -->
+                    android:layout_marginRight="2dp"
+                    android:src="@drawable/star_fill" /> <!-- Здесь вы можете изменить отступ, чтобы передвинуть изображение -->
             </RelativeLayout>
 
 
@@ -110,11 +109,11 @@
                 android:id="@+id/itemdateButton"
                 android:layout_width="80dp"
                 android:layout_height="20dp"
+                android:layout_marginLeft="2dp"
                 android:background="@drawable/rounded_edit_text"
                 android:foregroundGravity="center"
                 android:padding="0dp"
                 android:text="22 Май 2024"
-                android:layout_marginLeft="2dp"
                 android:textColor="@android:color/white"
                 android:textSize="8sp"
                 app:backgroundTint="#32333A4D" />
@@ -169,12 +168,13 @@
 
             <Button
                 android:id="@+id/courseButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:textSize="10sp"
                 android:background="@android:color/transparent"
                 android:text="Подробнее"
-                android:textColor="@android:color/holo_green_light"
+                android:drawableRight="@drawable/arrow"
+                android:textColor="#12B956"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
